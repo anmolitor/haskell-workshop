@@ -7,6 +7,3 @@ import BasicPrelude
 -- If you want to evaluate something:
 -- >>> 1 + 1
 -- 2
-
-test :: IO ()
-test = return ()

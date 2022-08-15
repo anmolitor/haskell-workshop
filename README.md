@@ -35,3 +35,5 @@ https://hoogle.haskell.org/ or alternatively the Haskell Spotlight extension.
 # Learning material
 
 http://learnyouahaskell.com/chapters
+
+https://serokell.io/blog/10-reasons-to-use-haskell

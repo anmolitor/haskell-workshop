@@ -35,6 +35,18 @@ factorial n = product [1..n]
 
 Der funktionale Stil tendiert dazu eher deklarativ zu sein - die Fakultät einer Zahl ist das Produkt aller Zahlen darunter, während der imperative Stil eher eine Liste an Schritten darstellt - was muss ich tun um die Fakultät einer Zahl auszurechnen.
 
+## Wie ist dieses Repo aufgebaut
+
+Dieses Repository wurde mit `stack new` aufgesetzt.
+Dies generiert die nötigen Dateien für `stack`, ein Buildtool für Haskell (so wie Maven für Java):
+
+- `package.yaml` deklariert libraries, executables, dependencies etc.
+- The `src` folder usually contains your application code
+- The `app` folder contains executables - files with `main` functions which may import your application code from `src`
+- The `test` folder contains a test-suite. `Spec.hs` contains a preprocessor macro to discover all files in the `test` folder with a `Spec` postfix and run a function called `spec` defined inside of them (you can ignore that file, just know that you need to define a function called `spec` which type is `Spec` from `Test.Hspec` in each of your tests)
+- `Setup.hs` is generated boilerplate needed by `stack` 
+
+
 ## Ziele des Workshops
 
 Für mich:

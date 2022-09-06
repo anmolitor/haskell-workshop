@@ -20,6 +20,19 @@ Das heißt nicht dass jede Variable explizit annotiert werden muss, Haskell hat 
 
 Lazy: Haskell wertet nur aus was tatsächlich verwendet wird. Das kann man sich so vorstellen wie wenn man in Java statt mit direkten Werten mit Lambdas ohne Inputs arbeitet (Supplier<T>).
 
+## Andere Eigenschaften der Sprache
+
+### Native executables
+GHC kompiliert Haskell Code zu nativen executables. In dieser Executable befindet sich immer eine multithreaded Haskell runtime. Es gibt andere Compile targets wie Web Assembly und JS, die sind aber deutlich weniger produktionsreif.
+
+### Garbage collected
+Wie in Java kümmert man sich nicht darum Memory zu allocaten.
+
+### Language Extensions
+GHC versteht per Default recht wenig Haskell Syntax. Viel Syntactic Sugar und Language Features werden durch `Language Extensions` gesteuert, die pro Projekt oder auch pro Datei an und aus getoggled werden können.
+In diesem Projekt sind viele (die meisten von der Community akzeptierten) Features per Default angeschaltet.
+
+
 ## Wie ist dieses Repo aufgebaut
 
 Dieses Repository wurde mit `stack new` aufgesetzt.

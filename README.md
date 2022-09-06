@@ -35,6 +35,8 @@ Run `stack test` to run tests (there is just one single test as a template right
 
 https://hoogle.haskell.org/ or alternatively the Haskell Spotlight extension.
 
+https://tryhaskell.org/ if for some reason we cannot get the VSCode setup to work
+
 # Learning material
 
 http://learnyouahaskell.com/chapters

@@ -9,7 +9,7 @@ Mittlerweile ist die Sprache über 30 Jahre alt, 1992 wurde die erste Version de
 Anfangs war die Programmiersprache rein akademisch, sie hat ihre Ursprünge in der Mathematik, aber wurde auch bald in kommerziellen Systemen verwendet.
 Heutzutage wird die Weiterentwicklung von der Haskell Foundation geleitet, die von vielen Firmen gesponsert wird.
 
-Die Sprache wird am häufigsten für Parser, Compiler, Webserver und Cryptocurrency verwendet, z.B. bei Meta/Facebook für Spam/Phishing Protection, GitHub für Source Code Parsing und Analyse, IOHK um die Cardano Blockchain Plattform und ihre Smart Contract Sprache zu implementieren.
+Die Sprache wird am häufigsten für Parser, Compiler, Webserver und Cryptocurrency verwendet, z.B. bei Meta/Facebook für Spam/Phishing Protection, GitHub für Source Code Parsing und Analyse, IOHK um die Cardano Blockchain Plattform und ihre Smart Contract Sprache zu implementieren. Sie ist berühmt dafür die Quelle für erweiternde funktionale Konzepte und Syntax in anderen Sprachen zu sein und Entwickler besseren Code schreiben zu lassen - auch in anderen Sprachen als Haskell.
 
 Viele Buzzwords, was bedeuten sie:
 

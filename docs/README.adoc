@@ -59,7 +59,11 @@ data YourUpperCaseTypeName = YourUpperCaseConstructorName
 [source,haskell]
 ----
 updateFirstTwoFields :: YourUpperCaseTypeName -> YourUpperCaseTypeName
-updateFirstTwoFields record = record { fieldName1 = fieldName1 record + 1, fieldName2 = [] }
+updateFirstTwoFields record =
+  record
+    { fieldName1 = fieldName1 record + 1,
+      fieldName2 = []
+    }
 ----
 
 ## Define a custom union type

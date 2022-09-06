@@ -1,6 +1,7 @@
 module Lib
-    ( start
-    ) where
+  ( start,
+  )
+where
 
 import BasicPrelude
 

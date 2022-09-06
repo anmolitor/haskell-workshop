@@ -24,6 +24,8 @@ prependHello :: Text -> Text
 prependHello str = "Hello " <> str
 ```
 
+Feedback: Do not use binary operators. instead use "normal" functions
+
 Similar syntax as above, since a function is also a value.
 Note the variable binding in front of the equals sign.
 In case you are wondering, `<>` is the standard function to concatenate "list-like" things (Semigroups).
@@ -66,6 +68,9 @@ addOneToAll2 :: [Int] -> [Int]
 addOneToAll2 = fmap (+ 1)
 ```
 
+Note: When this went over the top of your head don't worry. You can just write every parameter on the left side of the equals sign and use them on the right side. A simple heuristic to keep in mind: If you apply the last parameter on the left side
+as the last parameter on the right side, you can remove the parameters on both sides.
+
 ## Data Types
 
 Some basic data types you can use as building blocks:
@@ -94,6 +99,9 @@ aRecordInstance = MakeARecord {
     fieldA = False, 
     fieldB = "a text" 
     }
+
+toggleFieldA :: ARecord -> ARecord
+toggleFieldA r = r { fieldA = not (fieldA r) }    
 ```
 
 ### Defining a union type:
@@ -183,6 +191,8 @@ Typeclasses are like interfaces whose implementations are defined seperately fro
 A classic example is the `Eq` typeclass for equality comparison.
 
 It is defined like this:
+
+Feedback: Use other example with no operators.
 
 ```
 class Eq a where

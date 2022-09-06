@@ -9,8 +9,11 @@ Windows:
 
 First Steps: https://www.haskell.org/ghcup/steps/
 
+- Run `ghcup install `
+
 - Install vscode
 - Install the Haskell VsCode extension (ID: haskell.haskell)
+- Choose to automatically discover tools via GHCUp
 - Clone the repository
 - Run `stack build` to download and compile all dependencies
 - Open the project in VSCode and open `src/Lib.hs`

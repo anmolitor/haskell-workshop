@@ -2,7 +2,14 @@
 
 ## Was ist Haskell?
 
-Haskell ist eine rein funktionale, statisch typisierte, lazy Programmiersprache.  
+Haskell ist eine rein funktionale, statisch typisierte, lazy Programmiersprache.
+
+Mittlerweile ist die Sprache über 30 Jahre alt, 1992 wurde die erste Version des Glasgow Haskell Compilers geschrieben
+(der häufigst verwendete Haskell Compiler, der jetzt auch auf euren Rechnern ist).
+Anfangs war die Programmiersprache rein akademisch, sie hat ihre Ursprünge in der Mathematik, aber wurde auch bald in kommerziellen Systemen verwendet.
+Heutzutage wird die Weiterentwicklung von der Haskell Foundation geleitet, die von vielen Firmen gesponsert wird.
+
+Die Sprache wird am häufigsten für Parser, Compiler, Webserver und Cryptocurrency verwendet, z.B. bei Meta/Facebook für Spam/Phishing Protection, GitHub für Source Code Parsing und Analyse, IOHK um die Cardano Blockchain Plattform und ihre Smart Contract Sprache zu implementieren.
 
 Viele Buzzwords, was bedeuten sie:
 
@@ -26,6 +33,7 @@ public int factorial(int number) {
     for (int i = 1;i<=number;i++) {
         current = current * i;
     }
+    return current;
 }
 
 Fakultät berechnen in Haskell:
@@ -51,7 +59,7 @@ Dies generiert die nötigen Dateien für `stack`, ein Buildtool für Haskell (so
 
 Für mich:
 - Vorurteile gegen über FP und speziell Haskell abbauen:
-  - Nicht esoterisch, sondern gut geeignet für viele Domains, z.B. web server
+  - Nicht esoterisch, sondern gut geeignet für viele Domains, z.B. web applications
   - Man braucht keinen Mathedoktor um darin programmieren zu können
   - Relevante OOP Konzepte wie Polymorphism und Abstraction lassen sich genauso auch in Haskell finden
 

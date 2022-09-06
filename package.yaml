@@ -42,8 +42,6 @@ dependencies:
 - servant
 - servant-server
 - servant-client
-# Encryption/Decryption
-- cryptonite
 # Parsing
 - parsec
 # Testing
@@ -77,6 +75,7 @@ default-extensions:
   - RankNTypes
   - ScopedTypeVariables
   - StandaloneKindSignatures
+  - StrictData
   - TupleSections
   - TypeApplications
 

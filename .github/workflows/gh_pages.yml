@@ -25,7 +25,7 @@ jobs:
       uses: manoelcampos/asciidoctor-ghpages-action@v2.2.4
       with:
         pre_build: gem install pygments.rb
-        # pdf_build: true
+        pdf_build: true
         # asciidoctor_params: --attribute=nofooter
         # adoc_file_ext: .ascii # default is .adoc
         # source_dir: docs/ # default is .

@@ -7,10 +7,9 @@ Mac & Linux:
 Windows: 
 - Install ghcup `Set-ExecutionPolicy Bypass -Scope Process -Force;[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;Invoke-Command -ScriptBlock ([ScriptBlock]::Create((Invoke-WebRequest https://www.haskell.org/ghcup/sh/bootstrap-haskell.ps1 -UseBasicParsing))) -ArgumentList $true`    
 
-First Steps: https://www.haskell.org/ghcup/steps/
+For reference: https://www.haskell.org/ghcup/steps/
 
-- Run `ghcup install `
-
+- Run `ghcup install ghc 9.0.2`
 - Install vscode
 - Install the Haskell VsCode extension (ID: haskell.haskell)
 - Choose to automatically discover tools via GHCUp

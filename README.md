@@ -14,7 +14,7 @@ For reference: https://www.haskell.org/ghcup/steps/
 - Install the Haskell VsCode extension (ID: haskell.haskell)
 - Choose to automatically discover tools via GHCUp
 - Clone the repository
-- Run `stack build` to download and compile all dependencies
+- Run `stack build` to download and compile all dependencies (this should take a while)
 - Open the project in VSCode and open `src/Lib.hs`
 - Write something to make the program invalid. You should get syntax highlighting in a few seconds. If not check the output of the Haskell VSCode extension.
 

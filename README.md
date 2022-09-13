@@ -1,21 +1,22 @@
 # Setup
 
 Mac & Linux:
-- Install ghcup `curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh`
-    - Install hls and stack
+    - Install ghcup `curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh`
+        - Install hls and stack
 
 Windows: 
-- Install ghcup by pasting this in a PowerShell session: `Set-ExecutionPolicy Bypass -Scope Process -Force;[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;Invoke-Command -ScriptBlock ([ScriptBlock]::Create((Invoke-WebRequest https://www.haskell.org/ghcup/sh/bootstrap-haskell.ps1 -UseBasicParsing))) -ArgumentList $true`    
+    - Install ghcup by pasting this in a PowerShell session: `Set-ExecutionPolicy Bypass -Scope Process -Force;[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;Invoke-Command -ScriptBlock ([ScriptBlock]::Create((Invoke-WebRequest https://www.haskell.org/ghcup/sh/bootstrap-haskell.ps1 -UseBasicParsing))) -ArgumentList $true`    
 
 For reference: https://www.haskell.org/ghcup/steps/
 
+For all operating systems afterwards:
 - Run `ghcup install ghc 9.0.2`
 - Install vscode
 - Install the Haskell VsCode extension (ID: haskell.haskell)
-- Choose to automatically discover tools via GHCUp
 - Clone the repository
 - Run `stack build` to download and compile all dependencies (this should take a while)
 - Open the project in VSCode and open `src/Lib.hs`
+- Choose to automatically discover tools via GHCUp
 - Write something to make the program invalid. You should get syntax highlighting in a few seconds. If not check the output of the Haskell VSCode extension.
 
 You can write

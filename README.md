@@ -31,6 +31,13 @@ Run `stack run` to build and run the application (`app/Main.hs`).
 
 Run `stack test` to run tests (there is just one single test as a template right now)
 
+# Troubleshooting
+
+## stack build fails because of zlib
+
+Make sure the zlib C library is installed on your system.
+On ubuntu, I managed to resolve the issue by running `apt-get install zlib1g`.
+
 # Helpful tools
 
 https://hoogle.haskell.org/ or alternatively the Haskell Spotlight extension.

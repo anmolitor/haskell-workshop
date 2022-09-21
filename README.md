@@ -11,6 +11,7 @@ For reference: https://www.haskell.org/ghcup/steps/
 
 For all operating systems afterwards:
 - Run `ghcup install ghc 9.0.2`
+- Run `ghcup set ghc 9.0.2`
 - Install vscode
 - Install the Haskell VsCode extension (ID: haskell.haskell)
 - Clone the repository

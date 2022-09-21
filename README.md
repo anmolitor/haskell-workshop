@@ -17,20 +17,27 @@ For all operating systems afterwards:
 - Clone the repository
 - Run `stack build` to download and compile all dependencies (this should take a while)
 - Open the project in VSCode and open `src/Lib.hs`
-- Choose to automatically discover tools via GHCUp
+- If a popup appears, choose to automatically discover tools via GHCUp (otherwise the option is probably set correctly by default)
 - Write something to make the program invalid. You should get syntax highlighting in a few seconds. If not check the output of the Haskell VSCode extension.
 
+![How it should look](./docs/how-it-should-look.png)
+
+It should look like this (there is some highlighting and some information about the import)
+
 You can write
-`-- >>> some valid Haskell expression`
+`-- >>> some valid Haskell expression` in the file
 
 to run any function defined in the file and view the result
 
 For example
 `-- >>> 1 + 1` should bring up the VSCode "evaluate" option and produce `2`.
 
-Run `stack run` to build and run the application (`app/Main.hs`).
+Run `stack run` in the console to build and run the application (`app/Main.hs`). This should print "Hello Haskell" to the console.
 
-Run `stack test` to run tests (there is just one single test as a template right now)
+Run `stack test` to run tests (there is just one single test as a template right now). This should finish with
+```
+workshop> Test suite workshop-test passed
+```
 
 # Troubleshooting
 

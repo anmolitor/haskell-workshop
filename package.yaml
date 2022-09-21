@@ -57,6 +57,11 @@ library:
     - -Wpartial-fields
     - -Widentities
     - -Wredundant-constraints
+  when:
+    # fixes hpack/stack issue where a "Multiple files use the same module name" warning is printed to the console 
+    # https://github.com/commercialhaskell/stack/issues/5439
+    - condition: false
+      other-modules: Paths_workshop  
 
 default-extensions:
   - BangPatterns

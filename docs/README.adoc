@@ -213,7 +213,8 @@ firstThreeLinesAlternative = sequence listOfIOs
 -- sumFromOneToThree = foldl' (+) 0 [1,2,3] 
 
 -- bracket (from Control.Exception): Safely close IO resources like DB connections
-doWithDatabaseConnection = bracket connect disconnect (\conn -> someThingUsingTheConnection conn)
+doWithDatabaseConnection = bracket connect disconnect 
+  (\conn -> someThingUsingTheConnection conn)
 ----
 
 

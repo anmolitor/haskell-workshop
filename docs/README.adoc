@@ -42,7 +42,8 @@ Useful predefined basic data types:
 Useful predefined containers:
 `[a], Map a, Set a, Maybe a, Either e a, (a, b, ...)`
 
-[%unbreakable]
+<<<
+
 ## Define a custom product type
 
 [source,haskell]
@@ -55,7 +56,6 @@ data YourUpperCaseTypeName = YourUpperCaseConstructorName
   deriving (Show, Eq)
 ----
 
-[%unbreakable]
 ## Update a custom product type value
 
 [source,haskell]
@@ -68,7 +68,6 @@ updateFirstTwoFields record =
     }
 ----
 
-[%unbreakable]
 ## Define a custom union type
 
 [source,haskell]
@@ -80,7 +79,6 @@ data AnotherTypeName
   deriving (Show, Eq)
 ----
 
-[%unbreakable]
 ## Pattern matching
 
 [source,haskell]
@@ -101,7 +99,6 @@ withCaseOf mayA = case mayA of
     Nothing -> []
 ----
 
-[%unbreakable]
 ## Typeclasses
 
 [source,haskell]
@@ -118,7 +115,6 @@ instance JSConversion Int Bool where
     cast _ = True
 ----
 
-[%unbreakable]
 ## Helper methods
 
 [source,haskell]
@@ -137,7 +133,6 @@ complicatedOperation2 n =
     y = x - 5 
 ----
 
-[%unbreakable]
 ## Do notation and IO
 
 [source,haskell]
@@ -154,7 +149,6 @@ readTwoLines = do
     return (firstLine, secondLine)        
 ----
 
-[%unbreakable]
 ## Modules
 
 [source,haskell]
@@ -170,7 +164,6 @@ import qualified With.Alias.Prefix as TheAlias
 ...
 ----
 
-[%unbreakable]
 ## Functions you will need
 
 [source,haskell]

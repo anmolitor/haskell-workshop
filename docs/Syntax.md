@@ -20,52 +20,47 @@ Note that the type signature is seperate from the implementation.
 ## Define a function
 
 ```
-prependHello :: Text -> Text
-prependHello str = "Hello " <> str
+incrementByOne :: Int -> Int
+incrementByOne n = n + 1
 ```
 
 Feedback: Do not use binary operators. instead use "normal" functions
 
 Similar syntax as above, since a function is also a value.
 Note the variable binding in front of the equals sign.
-In case you are wondering, `<>` is the standard function to concatenate "list-like" things (Semigroups).
-`+` is reserved for the numeric plus operation.
 
 We can call our function like this:
 
 ```
-helloWorld :: Text
-helloWorld = prependHello "World"
+fortyTwo :: Int
+fortyTwo = incrementByOne 41
+```
+
+Or we can use it to construct more complex functions:
+```
+addOneToAll :: [Int] -> [Int]
+addOneToAll ints = fmap incrementByOne ints
 ```
 
 Note that there are no brackets necessary. Instead spaces are used as function application.
 
 ## Partial application
 
-The `<>` function in the previous example has the signature `Text -> Text -> Text`.
-We saw that when we provided two arguments to the function (`"Hello "` and `str`), we got a `Text` back.
+The `fmap` function in the previous example has the signature `(a -> b) -> [a] -> [b]`.
+We saw that when we provided two arguments to the function (`incrementByOne` and `ints`), we got a `[Int]` back.
 But as the type signature already suggests, we can provide a single argument and get a function of type
-`Text -> Text` back. That means the previous function could have also been written like this:
-
-```
-prependHello2 :: Text -> Text
-prependHello2 = ("Hello " <>)
-```
-
-This is often useful to avoid lambda expressions and variables where we do not need them.
-
-To add 1 to every Int in list we could write
-
-```
-addOneToAll :: [Int] -> [Int]
-addOneToAll ints = fmap (\n -> n + 1) ints
-```
-
-or instead
+`[Int] -> [Int]` back. That means the previous function could have also been written like this:
 
 ```
 addOneToAll2 :: [Int] -> [Int]
-addOneToAll2 = fmap (+ 1)
+addOneToAll2 = fmap incrementByOne
+```
+
+In fact, we can also partially applies operators like `+` so this is also an equivalent definition:
+
+```
+addOneToAll3 :: [Int] -> [Int]
+addOneToAll3 = fmap (+ 1)
 ```
 
 Note: When this went over the top of your head don't worry. You can just write every parameter on the left side of the equals sign and use them on the right side. A simple heuristic to keep in mind: If you apply the last parameter on the left side

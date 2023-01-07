@@ -1,7 +1,7 @@
 module Main where
 
-import qualified Lib
 import BasicPrelude
+import qualified Hangman
 
 main :: IO ()
-main = Lib.start
+main = Hangman.start

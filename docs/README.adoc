@@ -28,7 +28,7 @@ fullyApplied = yourLowerCaseFunctionName "test" 123
 
 `1 + 2` is the same as `(+) 1 2`
 
-`mod 5 2` is the same as `5 \`mod\` 2`
+`mod 5 2` is the same as ``5 \`mod` 2``
 
 ## Composing functions
 
@@ -41,6 +41,8 @@ Useful predefined basic data types:
 
 Useful predefined containers:
 `[a], Map a, Set a, Maybe a, Either e a, (a, b, ...)`
+
+<<<
 
 ## Define a custom product type
 
@@ -204,7 +206,8 @@ firstThreeLinesAlternative = sequence listOfIOs
 -- sumFromOneToThree = foldl' (+) 0 [1,2,3] 
 
 -- bracket (from Control.Exception): Safely close IO resources like DB connections
-doWithDatabaseConnection = bracket connect disconnect (\conn -> someThingUsingTheConnection conn)
+doWithDatabaseConnection = bracket connect disconnect 
+  (\conn -> someThingUsingTheConnection conn)
 ----
 
 

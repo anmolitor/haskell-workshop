@@ -1,0 +1,58 @@
+name: workshop
+version: 0.0.1
+synopsis: A workshop to introduce Haskell to developers
+description: See README at <https://github.com/andreasewering/haskell-workshop#readme>
+maintainer: Andreas Molitor <andreas.molitor@andrena.de>
+github: andreasewering/haskell-workshop
+category: Learning
+extra-source-files:
+  - README.md
+ghc-options: -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates
+  -Wpartial-fields -Widentities -Wredundant-constraints
+
+dependencies:
+  - base                  >=4.7 && <5
+  - basic-prelude
+  - bytestring
+  - containers
+  - QuickCheck
+  - random
+  - text
+  - unordered-containers
+
+default-extensions:
+  - NoImplicitPrelude
+  - LambdaCase
+  - NamedFieldPuns
+  - OverloadedStrings
+  - StrictData
+
+language: GHC2021
+
+library:
+  source-dirs: src
+
+executables:
+  hangman:
+    main: Hangman.hs
+    ghc-options: -main-is Hangman
+    source-dirs: app
+    dependencies:
+      - workshop
+  mastermind:
+    main: Mastermind.hs
+    ghc-options: -main-is Mastermind
+    source-dirs: app
+    dependencies:
+      - workshop
+
+tests:
+  spec:
+    main: Spec.hs
+    source-dirs:
+      - test
+    dependencies:
+      - workshop
+      - hspec
+      - QuickCheck
+    build-tools: hspec-discover

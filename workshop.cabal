@@ -1,70 +1,137 @@
-cabal-version:      3.6
-name:               workshop
-version:            0.1.0.0
-description:
-  Please see the README on GitHub at <https://github.com/githubuser/workshop#readme>
+cabal-version: 1.12
 
-homepage:           https://github.com/githubuser/workshop#readme
-bug-reports:        https://github.com/githubuser/workshop/issues
-author:             Author name here
-maintainer:         example@example.com
-copyright:          2022 Author name here
-license:            BSD-3-Clause
-build-type:         Simple
-extra-source-files: README.md
+-- This file has been generated from package.yaml by hpack version 0.35.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           workshop
+version:        0.0.1
+synopsis:       A workshop to introduce Haskell to developers
+description:    See README at <https://github.com/andreasewering/haskell-workshop#readme>
+category:       Learning
+homepage:       https://github.com/andreasewering/haskell-workshop#readme
+bug-reports:    https://github.com/andreasewering/haskell-workshop/issues
+maintainer:     Andreas Molitor <andreas.molitor@andrena.de>
+build-type:     Simple
+extra-source-files:
+    README.md
 
 source-repository head
-  type:     git
-  location: https://github.com/githubuser/workshop
-
-common common-build-config
-  ghc-options:
-    -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates
-    -Wpartial-fields -Widentities -Wredundant-constraints
-
-  default-extensions:
-    NoImplicitPrelude
-    LambdaCase
-    NamedFieldPuns
-    OverloadedStrings
-    StrictData
-
-  default-language:   GHC2021
+  type: git
+  location: https://github.com/andreasewering/haskell-workshop
 
 library
-  import:          common-build-config
-  exposed-modules: Hangman
-  hs-source-dirs:  src
+  exposed-modules:
+      CommandLine
+      CommandLine.Types
+      Hangman.GameState
+      Hangman.Program
+      Mastermind.GameState
+      Mastermind.Program
+      Syntax.Ex1
+      TicTacToe.GameState
+      Web
+  other-modules:
+      Paths_workshop
+  hs-source-dirs:
+      src
+  default-extensions:
+      NoImplicitPrelude
+      LambdaCase
+      NamedFieldPuns
+      OverloadedStrings
+      StrictData
+  ghc-options: -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates -Wpartial-fields -Widentities -Wredundant-constraints
   build-depends:
-    , base                  >=4.7 && <5
+      QuickCheck
+    , base >=4.7 && <5
     , basic-prelude
     , bytestring
     , containers
-    , QuickCheck
     , random
     , text
     , unordered-containers
+  default-language: GHC2021
 
-executable workshop-exe
-  import:         common-build-config
-  main-is:        Main.hs
-  hs-source-dirs: app
+executable hangman
+  main-is: Hangman.hs
+  other-modules:
+      Mastermind
+      Paths_workshop
+  hs-source-dirs:
+      app
+  default-extensions:
+      NoImplicitPrelude
+      LambdaCase
+      NamedFieldPuns
+      OverloadedStrings
+      StrictData
+  ghc-options: -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates -Wpartial-fields -Widentities -Wredundant-constraints -main-is Hangman
   build-depends:
-    , base      >=4.7 && <5
-    , workshop
-
-  ghc-options:    -threaded -rtsopts -with-rtsopts=-N
-
-test-suite workshop-test
-  import:         common-build-config
-  type:           exitcode-stdio-1.0
-  main-is:        Spec.hs
-  other-modules:  LibSpec
-  hs-source-dirs: test
-  build-depends:
-    , base           >=4.7 && <5
+      QuickCheck
+    , base >=4.7 && <5
     , basic-prelude
-    , hspec
+    , bytestring
+    , containers
+    , random
+    , text
+    , unordered-containers
     , workshop
+  default-language: GHC2021
 
-  ghc-options:    -threaded -rtsopts -with-rtsopts=-N
+executable mastermind
+  main-is: Mastermind.hs
+  other-modules:
+      Hangman
+      Paths_workshop
+  hs-source-dirs:
+      app
+  default-extensions:
+      NoImplicitPrelude
+      LambdaCase
+      NamedFieldPuns
+      OverloadedStrings
+      StrictData
+  ghc-options: -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates -Wpartial-fields -Widentities -Wredundant-constraints -main-is Mastermind
+  build-depends:
+      QuickCheck
+    , base >=4.7 && <5
+    , basic-prelude
+    , bytestring
+    , containers
+    , random
+    , text
+    , unordered-containers
+    , workshop
+  default-language: GHC2021
+
+test-suite spec
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      HangmanSpec
+      MastermindSpec
+      Paths_workshop
+  hs-source-dirs:
+      test
+  default-extensions:
+      NoImplicitPrelude
+      LambdaCase
+      NamedFieldPuns
+      OverloadedStrings
+      StrictData
+  ghc-options: -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates -Wpartial-fields -Widentities -Wredundant-constraints
+  build-tool-depends:
+      hspec-discover:hspec-discover
+  build-depends:
+      QuickCheck
+    , base >=4.7 && <5
+    , basic-prelude
+    , bytestring
+    , containers
+    , hspec
+    , random
+    , text
+    , unordered-containers
+    , workshop
+  default-language: GHC2021

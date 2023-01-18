@@ -1,2 +1,13 @@
 cradle:
-  cabal:
+  stack:
+    - path: "./test/"
+      component: "workshop:test:spec"
+
+    - path: "./app/Mastermind.hs"
+      component: "workshop:exe:mastermind"
+
+    - path: "./app/Hangman.hs"
+      component: "workshop:exe:hangman"
+
+    - path: "./src/"
+      component: "workshop:lib"

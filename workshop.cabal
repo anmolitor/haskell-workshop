@@ -28,7 +28,7 @@ library
       Hangman.Program
       Mastermind.GameState
       Mastermind.Program
-      Syntax.Ex1
+      Syntax.Examples
       TicTacToe.GameState
       Web
   other-modules:

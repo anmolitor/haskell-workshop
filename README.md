@@ -60,6 +60,11 @@ https://tryhaskell.org/ if for some reason we cannot get the VSCode setup to wor
 
 # Exercises
 
+## Ex0
+
+Optional, easy exercises. You can skip this at any point if you like.
+Go to `src/Syntax/Examples.hs`.
+
 ## Ex1-2
 
 Start in the file `src/Hangman/GameState.hs`.

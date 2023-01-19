@@ -1,4 +1,4 @@
-module Syntax.Ex1 where
+module Syntax.Examples where
 
 import BasicPrelude
 
@@ -98,3 +98,19 @@ multiplyBy2ThenAdd5 :: Int -> Int
 multiplyBy2ThenAdd5 = error "Not implemented!"
 
 -- >>> multiplyBy2ThenAdd5 7
+
+-- Maybe you noticed, but you did not have to explicitely pass all arguments to the functions
+-- until they were fully evaluated. Just think of it as a method reference in Java or Javascript,
+-- except all functions support it without "this" issues and also support partial application.
+
+-- The following implementation does not bind any arguments on the left side, even though the type suggests it should
+-- This is because "fmap" is applied partially. If it helps, consider the following desugaring:
+-- fmap (+ 1) === (\list -> fmap (+ 1) list) === (\list -> fmap (\n -> n + 1) list)
+add1ToEach :: [Int] -> [Int]
+add1ToEach = fmap (+ 1)
+
+-- Can you filter a list of texts such that only the ones that are "FortyTwo" remain?
+filterFortyTwo :: [Text] -> [Text]
+filterFortyTwo = error "Not implemented!"
+
+-- >>> filterFortyTwo ["FortyTwo", "Bla", "FortyTwo"]

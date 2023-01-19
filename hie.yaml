@@ -9,5 +9,8 @@ cradle:
     - path: "./app/Hangman.hs"
       component: "workshop:exe:hangman"
 
+    - path: "./app/Server.hs"
+      component: "workshop:exe:server"
+
     - path: "./src/"
       component: "workshop:lib"

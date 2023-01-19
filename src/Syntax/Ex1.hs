@@ -22,7 +22,7 @@ multiplyBy2 n = n * 2
 
 -- Function application is just a space. No brackets necessary (although sometimes needed if order is unclear)
 six :: Int
-six = multiplyBy2 3  
+six = multiplyBy2 3
 
 -- Functions always consist of an implementation which is signaled by
 -- the equals (=) sign. You can optionally provide a type signature
@@ -32,9 +32,15 @@ six = multiplyBy2 3
 add5 :: Int -> Int
 add5 = error "Not implemented yet."
 
+-- >>> add5 23
+-- Not implemented yet.
+
 -- Write a function that multiplies the first parameter by the second parameter and adds 5
 multiplyAndAdd5 :: Int -> Int -> Int
 multiplyAndAdd5 = error "Not implemented yet."
+
+-- >>> multiplyAndAdd5 3 6
+-- Not implemented yet.
 
 -- You can pattern match on any input value of a function by using the same syntax as you would
 -- on the right side of an equation.
@@ -52,6 +58,8 @@ notAVeryGoodFizzBuzz n = tshow n
 -- Write a function that returns True if the given Text is "FortyTwo" and False otherwise
 isFortyTwo :: Text -> Bool
 isFortyTwo = error "Not implemented yet."
+
+-- >>> isFortyTwo "FortyTwo"
 
 -- if/then/else or case/of can also be used for control flow
 aBetterFizzBuzz :: Int -> Text
@@ -71,13 +79,13 @@ boolToInt b = case b of
   True -> 1
   False -> 0
 
+-- You should see automatic refactoring opportunities.
+-- Use them to simplify the code.
+-- Guards are a solution to nested if/else chains.
+
 -- Tuples can be used to return more than one value
 plusOneAndPlusTwo :: Int -> (Int, Int)
 plusOneAndPlusTwo n = (n + 1, n + 2)
-
--- Can you define a version that is not deeply nested like the previous one?
-fizzBuzz :: Int -> Text
-fizzBuzz = error "Not implemented!"
 
 -- Haskell is all about functions and composing things to build new things of the same type.
 -- Naturally, there are many ways to compose functions.
@@ -88,3 +96,5 @@ fizzBuzz = error "Not implemented!"
 -- Compose the `add5` and `multiplyBy2` functions such that the multiplication occurs first.
 multiplyBy2ThenAdd5 :: Int -> Int
 multiplyBy2ThenAdd5 = error "Not implemented!"
+
+-- >>> multiplyBy2ThenAdd5 7

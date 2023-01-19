@@ -1,4 +1,12 @@
-module Mastermind.GameState (GameState (Starting), handleInput, Output (..), parseInput, Color (..)) where
+module Mastermind.GameState
+  ( GameState (Starting),
+    handleInput,
+    Output (..),
+    Input,
+    parseInput,
+    Color (..),
+  )
+where
 
 import BasicPrelude
 

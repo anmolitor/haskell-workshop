@@ -36,9 +36,10 @@ library
   hs-source-dirs:
       src
   default-extensions:
-      NoImplicitPrelude
+      DataKinds
       LambdaCase
       NamedFieldPuns
+      NoImplicitPrelude
       OverloadedStrings
       StrictData
   ghc-options: -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates -Wpartial-fields -Widentities -Wredundant-constraints
@@ -57,13 +58,15 @@ executable hangman
   main-is: Hangman.hs
   other-modules:
       Mastermind
+      Server
       Paths_workshop
   hs-source-dirs:
       app
   default-extensions:
-      NoImplicitPrelude
+      DataKinds
       LambdaCase
       NamedFieldPuns
+      NoImplicitPrelude
       OverloadedStrings
       StrictData
   ghc-options: -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates -Wpartial-fields -Widentities -Wredundant-constraints -main-is Hangman
@@ -83,16 +86,46 @@ executable mastermind
   main-is: Mastermind.hs
   other-modules:
       Hangman
+      Server
       Paths_workshop
   hs-source-dirs:
       app
   default-extensions:
-      NoImplicitPrelude
+      DataKinds
       LambdaCase
       NamedFieldPuns
+      NoImplicitPrelude
       OverloadedStrings
       StrictData
   ghc-options: -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates -Wpartial-fields -Widentities -Wredundant-constraints -main-is Mastermind
+  build-depends:
+      QuickCheck
+    , base >=4.7 && <5
+    , basic-prelude
+    , bytestring
+    , containers
+    , random
+    , text
+    , unordered-containers
+    , workshop
+  default-language: GHC2021
+
+executable server
+  main-is: Server.hs
+  other-modules:
+      Hangman
+      Mastermind
+      Paths_workshop
+  hs-source-dirs:
+      app
+  default-extensions:
+      DataKinds
+      LambdaCase
+      NamedFieldPuns
+      NoImplicitPrelude
+      OverloadedStrings
+      StrictData
+  ghc-options: -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates -Wpartial-fields -Widentities -Wredundant-constraints -main-is Server
   build-depends:
       QuickCheck
     , base >=4.7 && <5
@@ -115,9 +148,10 @@ test-suite spec
   hs-source-dirs:
       test
   default-extensions:
-      NoImplicitPrelude
+      DataKinds
       LambdaCase
       NamedFieldPuns
+      NoImplicitPrelude
       OverloadedStrings
       StrictData
   ghc-options: -Wall -Wincomplete-uni-patterns -Wincomplete-record-updates -Wpartial-fields -Widentities -Wredundant-constraints

@@ -19,11 +19,20 @@ dependencies:
   - random
   - text
   - unordered-containers
+  # Dependencies needed for Websocket interface to games
+  # Only comment in if you want to do the related tasks.
+  # - aeson
+  # - conduit
+  # - servant
+  # - servant-server
+  # - servant-websockets
+  # - warp
 
 default-extensions:
-  - NoImplicitPrelude
+  - DataKinds
   - LambdaCase
   - NamedFieldPuns
+  - NoImplicitPrelude
   - OverloadedStrings
   - StrictData
 
@@ -42,6 +51,12 @@ executables:
   mastermind:
     main: Mastermind.hs
     ghc-options: -main-is Mastermind
+    source-dirs: app
+    dependencies:
+      - workshop
+  server:
+    main: Server.hs
+    ghc-options: -main-is Server
     source-dirs: app
     dependencies:
       - workshop

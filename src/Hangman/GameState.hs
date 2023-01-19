@@ -1,4 +1,10 @@
-module Hangman.GameState (GameState (Starting), handleInput, Output (..)) where
+module Hangman.GameState
+  ( GameState (Starting),
+    handleInput,
+    Output (..),
+    Input,
+  )
+where
 
 import BasicPrelude
 import Data.Set qualified as Set

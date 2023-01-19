@@ -1,0 +1,31 @@
+<html>
+
+<body>
+  <div>
+    <form>
+      <input id="number-input" type="number">
+      <button id="add-button">Add</button>
+    </form>
+    <span>Total Value: <div id="total-value">0</div></span>
+  </div>
+  <script>
+    const ws = new WebSocket(window.location.origin.replace('http', 'ws') + "/add");
+    const getNumberInputValue = () => document.getElementById('number-input').value;
+    const setTotalValue = (value) => {
+      document.getElementById('total-value').innerText = value;
+    };
+    const addButton = document.getElementById('add-button');
+    const sendAdd = (ev) => {
+      ev.preventDefault();
+      const value = getNumberInputValue();
+      ws.send(value);
+    }
+    const onWsMessage = ({ data }) => {
+      setTotalValue(data);
+    }
+    ws.addEventListener('message', onWsMessage);
+    addButton.addEventListener('click', sendAdd);
+  </script>
+</body>
+
+</html>

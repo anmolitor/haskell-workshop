@@ -1,6 +1,6 @@
 # Syntax
 
-To follow along, open the file `Syntax.hs` and try playing around with the syntax yourself.
+To follow along, open a file and try playing around with the syntax yourself.
 If you want to evaluate an expression to see what it does, you can use
 ```
 -- >>> yourExpression

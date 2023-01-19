@@ -1,13 +1,5 @@
 # Hints
 
-## Things you could do in this workshop
-
-Advent of code - small and fun exercises https://adventofcode.com/
-Write a command line game
-Write a parser (and interpreter) for your own toy language (for example a simple calculator)
-Write a classic backend http server (for example a TODO Api)
-...
-
 ## Containers
 
 A lot of Haskell code uses different kinds of `containers` that can contain any type.

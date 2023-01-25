@@ -2,7 +2,10 @@
 
 Mac & Linux:
     - Install ghcup `curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh`
+        - Press Enter
+        - Let the executable add the required stuff to the PATH
         - Install hls and stack
+        - The CLI will print a list of package names, ensure the necessary packages are installed on your system
 
 Windows: 
     - Install ghcup by pasting this in a PowerShell session: `Set-ExecutionPolicy Bypass -Scope Process -Force;[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;Invoke-Command -ScriptBlock ([ScriptBlock]::Create((Invoke-WebRequest https://www.haskell.org/ghcup/sh/bootstrap-haskell.ps1 -UseBasicParsing))) -ArgumentList $true`    

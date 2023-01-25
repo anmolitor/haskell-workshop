@@ -7,24 +7,69 @@
       <button id="add-button">Add</button>
     </form>
     <span>Total Value: <div id="total-value">0</div></span>
+
+    <form id="hangman-form" style="display: none;">
+      <input id="hangman-input">
+      <button id="send-hangman-guess">Send guess</button>
+      <span>Last Message: <span id="hangman-message"></span></span>
+    </form>
+    <button id="play-hangman">Play hangman</button>
   </div>
   <script>
-    const ws = new WebSocket(window.location.origin.replace('http', 'ws') + "/add");
-    const getNumberInputValue = () => document.getElementById('number-input').value;
-    const setTotalValue = (value) => {
-      document.getElementById('total-value').innerText = value;
-    };
-    const addButton = document.getElementById('add-button');
-    const sendAdd = (ev) => {
-      ev.preventDefault();
-      const value = getNumberInputValue();
-      ws.send(value);
-    }
-    const onWsMessage = ({ data }) => {
-      setTotalValue(data);
-    }
-    ws.addEventListener('message', onWsMessage);
-    addButton.addEventListener('click', sendAdd);
+    (() => {
+      const ws = new WebSocket(window.location.origin.replace('http', 'ws') + "/add");
+      const getNumberInputValue = () => document.getElementById('number-input').value;
+      const setTotalValue = (value) => {
+        document.getElementById('total-value').innerText = value;
+      };
+      const addButton = document.getElementById('add-button');
+      const sendAdd = (ev) => {
+        ev.preventDefault();
+        const value = getNumberInputValue();
+        if (!value) {
+          return;
+        }
+        ws.send(value);
+      }
+      const onWsMessage = ({ data }) => {
+        setTotalValue(data);
+      }
+      ws.addEventListener('message', onWsMessage);
+      addButton.addEventListener('click', sendAdd);
+    })();
+
+    (() => {
+      const hangmanForm = document.getElementById('hangman-form');
+      const playButton = document.getElementById('play-hangman');
+
+      const onWsMessage = ({ data }) => {
+        document.getElementById('hangman-message').innerText = JSON.parse(data);
+      };
+
+      let ws;
+      const playHangman = () => {
+        playButton.style.display = 'none';
+        hangmanForm.style.display = 'block'
+        if (!ws) {
+          ws = new WebSocket(window.location.origin.replace('http', 'ws') + "/hangman");
+          ws.addEventListener('message', onWsMessage);
+        }
+      };
+      playButton.addEventListener('click', playHangman);
+
+      const sendButton = document.getElementById('send-hangman-guess');
+      const sendGuess = (ev) => {
+        ev.preventDefault();
+        const guess = document.getElementById('hangman-input').value;
+        if (!guess) {
+          return;
+        }
+        ws.send(JSON.stringify(guess));
+      };
+      sendButton.addEventListener('click', sendGuess)
+
+    })()
+
   </script>
 </body>
 

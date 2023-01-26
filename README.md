@@ -94,6 +94,8 @@ Here are some ideas what you could do:
    If you want to you can try to refactor code so that you can add more games easily just providing a `handleInput` function
    and `FromJSON/ToJSON` instances for the input/output types.
 3. Complete some [Advent of Code](https://adventofcode.com/) exercises in Haskell.
+4. Take a look/try to do some type-level stuff. Haskells type system is complicated but very expressive.
+   I provided an example under `src/Uno/Card.hs` that makes sure during compile time that only valid cards are able to be played.
 
 # Learning material
 

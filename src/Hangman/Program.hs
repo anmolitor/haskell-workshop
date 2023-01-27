@@ -25,3 +25,4 @@ formatOutput = \case
   Hangman.GameState.SavedWordToGuess -> "Start guessing the word! You can either enter a single letter or a whole word"
   Hangman.GameState.GuessIncorrect -> "Guess incorrect! Try again."
   Hangman.GameState.RevealedChar hint -> Text.pack hint
+  Hangman.GameState.GuessCorrect -> "Guess correct! You can start a new game by typing in a new word to guess."

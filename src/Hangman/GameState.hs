@@ -31,6 +31,7 @@ type Input = String
 data Output
   = SavedWordToGuess
   | EmptyGuessGiven
+  | GuessCorrect
   | GuessIncorrect
   | RevealedChar String
   deriving (Eq, Show)
@@ -57,12 +58,13 @@ handleInput
          in ( RevealedChar $ maskWord newRevealedChars wordToGuess,
               Guessing wordToGuess newRevealedChars
             )
+handleInput guess (Guessing wordToGuess _) | guess == wordToGuess = (GuessCorrect, Starting)
 handleInput _ state = (GuessIncorrect, state)
 
 maskWord :: Set Char -> String -> String
-maskWord revealedChars = id
+maskWord revealedChars = fmap $ maskUnknownChar revealedChars
 
 -- | If a char is not in the revealed chars we want to replace it with "_"
 maskUnknownChar :: Set Char -> Char -> Char
-maskUnknownChar revealedChars =
-  id
+maskUnknownChar revealedChars char =
+  if Set.member char revealedChars then char else '_'

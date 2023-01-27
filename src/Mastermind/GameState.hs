@@ -5,6 +5,7 @@ module Mastermind.GameState
     Input,
     parseInput,
     Color (..),
+    Hint (..),
   )
 where
 
@@ -26,25 +27,56 @@ data GameState = Starting | Guessing [Color]
   deriving (Eq, Show)
 
 data Color = Red | Blue | Green | Yellow | White
-  deriving (Eq, Show)
+  deriving (Eq, Show, Ord)
+
+data Hint = Hint {numberOfCorrectColors :: Int, numberOfCorrectPositions :: Int}
+  deriving (Show, Eq)
 
 type Input = [Color]
 
 data Output
   = SavedColorsToGuess
   | GuessCorrect
-  | GuessIncorrect
+  | GuessIncorrect Hint
   deriving (Show, Eq)
 
 handleInput :: Input -> GameState -> (Output, GameState)
 handleInput input Starting = (SavedColorsToGuess, Guessing input)
 handleInput input (Guessing colorsToGuess)
   | input == colorsToGuess = (GuessCorrect, Starting)
-handleInput _ state = (GuessIncorrect, state)
+handleInput input (Guessing colorsToGuess) = (GuessIncorrect $ calculateHint input colorsToGuess, Guessing colorsToGuess)
+
+calculateHint :: [Color] -> [Color] -> Hint
+calculateHint guess colorsToGuess =
+  let (numberOfCorrectPositions, leftoverGuess, leftoverSolution) = removeCorrectPositions guess colorsToGuess
+   in Hint
+        { numberOfCorrectPositions = numberOfCorrectPositions,
+          numberOfCorrectColors = numberOfMatchingColors leftoverGuess leftoverSolution
+        }
+
+numberOfMatchingColors :: [Color] -> [Color] -> Int
+numberOfMatchingColors guess solution =
+  let sortedGuess = sort guess
+      sortedSolution = sort solution
+      match [] _ = 0
+      match _ [] = 0
+      match (g : gs) (s : ss) | g == s = match gs ss + 1
+      match (g : gs) (s : ss) | g > s = match (g : gs) ss
+      match (_ : gs) (s : ss) = match gs (s : ss)
+   in match sortedGuess sortedSolution
+
+removeCorrectPositions :: [Color] -> [Color] -> (Int, [Color], [Color])
+removeCorrectPositions guess =
+  foldl' go (0, [], []) . zip guess
+  where
+    go (numberOfCorrectPositions, leftoverGuess, leftoverSolution) (guessedColor, solutionColor) =
+      if guessedColor == solutionColor
+        then (numberOfCorrectPositions + 1, leftoverGuess, leftoverSolution)
+        else (numberOfCorrectPositions, guessedColor : leftoverGuess, solutionColor : leftoverSolution)
 
 -- | Extract all color chars from a String
 parseInput :: String -> Input
-parseInput = const []
+parseInput = mapMaybe parseColor
 
 parseColor :: Char -> Maybe Color
 parseColor 'r' = Just Red

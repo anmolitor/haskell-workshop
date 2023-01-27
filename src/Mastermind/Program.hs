@@ -24,4 +24,9 @@ formatOutput :: Mastermind.GameState.Output -> Text
 formatOutput = \case
   Mastermind.GameState.SavedColorsToGuess -> "Start guessing the colors!"
   Mastermind.GameState.GuessCorrect -> "Great job, you win! Enter a list of colors to start a new game."
-  Mastermind.GameState.GuessIncorrect -> "Guess incorrect! Try again."
+  Mastermind.GameState.GuessIncorrect hint ->
+    "Guess incorrect! You had "
+      ++ tshow (Mastermind.GameState.numberOfCorrectPositions hint)
+      ++ " correct positions and "
+      ++ tshow (Mastermind.GameState.numberOfCorrectColors hint)
+      ++ " correct colors. Try again."
